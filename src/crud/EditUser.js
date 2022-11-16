@@ -1,0 +1,71 @@
+import { Button } from '@material-ui/core'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
+function EditUser() {
+
+  const { id } = useParams();
+
+  const [user, setUser] = useState({
+    id: "",
+    name: "",
+  });
+
+  const onInputChange = (e) => {
+    const { name, value } = e.target;
+    setUser({ ...user, [name]: value });
+  };
+
+  useEffect(()=> {
+    axios.get(`http://localhost:3001/data/${id}`).then((item) => {
+      setUser(item.data);
+    })
+  }, [id]);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    axios.put(`http://localhost:3001/data/${id}`,user)
+    .then(response => {
+      console.log(response);
+    })
+    window.location.href = "/user";
+  };
+
+  return (
+    <>
+       <div className="container">
+        <div className="row">
+          <form onSubmit={e=>onSubmit(e)}>
+            <div className="col-12">
+              <label htmlFor="id">ID</label>
+              <input
+              type="number"
+                name="id"
+                autoComplete="off"
+                onChange={(e) => onInputChange(e)}
+                value={user.id}
+              required />
+            </div>
+
+            <div className="col-12">
+              <label htmlFor="name">First Name</label>
+              <input
+                name="name"
+                autoComplete="off"
+                onChange={(e) => onInputChange(e)}
+                value={user.name}
+                required
+              />
+            </div>
+              <Button color="primary" variant="outlined" type="submit">
+                  Update
+              </Button>      
+          </form>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default EditUser
