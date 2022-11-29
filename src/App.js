@@ -15,6 +15,7 @@ import Single from './componets/Single';
 import Filter_regular_expression from './componets/Filter_regular_expression';
 import Dynamic_Array from './componets/Dynamic_Array';
 import RepeaterForm from './componets/RepeaterForm';
+import Product from './props/Product';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
                 <Route path="/filter-regular-expression" exact element={<Filter_regular_expression />} />
                 <Route path="/dynamic-array" exact element={<Dynamic_Array />} />
                 <Route path="/dynamic-form" exact element={<RepeaterForm />} />
+                <Route path="/products" exact element={<Product />} />
               </Route>
               { isLogout ? null 
               :
