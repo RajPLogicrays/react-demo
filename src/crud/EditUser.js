@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 function EditUser() {
 
@@ -23,13 +23,16 @@ function EditUser() {
     })
   }, [id]);
 
+  const navigate = useNavigate();
+
   const onSubmit = (e) => {
     e.preventDefault();
     axios.put(`http://localhost:3001/data/${id}`,user)
     .then(response => {
       console.log(response);
     })
-    window.location.href = "/user";
+    navigate('/user');
+    setUser();
   };
 
   return (

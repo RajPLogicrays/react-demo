@@ -5,10 +5,10 @@ function Dynamic_Array() {
 
     const [list, setList] = useState([Array.from({length: 10}, () => Math.floor(Math.random() * 10)+1)]);
     // const randomNum = Math.floor(Math.random() * 100)+1;
-    const randomNum = Array.from({length: 10}, () => Math.floor(Math.random() * 10)+1);
+    const randomNum = Array.from({length: 20}, () => Math.floor(Math.random() * 100 )+1);
     console.log(randomNum)
     
-    const heandlsubmt = () =>{
+    function heandlsubmt() {
         setList(randomNum);
     }
 

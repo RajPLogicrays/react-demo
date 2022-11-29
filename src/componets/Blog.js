@@ -66,3 +66,5 @@ export default function Blog() {
 // }
 
 // export default Props
+
+// <Blog name="raj" />

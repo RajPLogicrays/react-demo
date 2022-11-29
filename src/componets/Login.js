@@ -3,7 +3,7 @@ import { Field, Form, Formik } from "formik";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import Lock from "@material-ui/icons/Lock";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
 
@@ -15,6 +15,9 @@ function Login() {
   });
 
   const [error, setError] = useState(null);
+
+  const navigate = useNavigate();
+
   
   return (
     <>
@@ -35,7 +38,8 @@ function Login() {
                     // alert(JSON.stringify(data));
                     alert("Welcome Dofa! :)");
                     localStorage.setItem('data', JSON.stringify(data));
-                    window.location.href = "/";
+                    // window.location.href = "/";
+                    navigate('/')
                   }
                 })
                 .catch((err) => {

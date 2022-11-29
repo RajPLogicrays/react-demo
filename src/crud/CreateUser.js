@@ -20,7 +20,7 @@ function CreateUser() {
       .then(({ data }) => {
         setData(data);
       })
-      .catch((err) => {
+      .catch(() => {
         alert("Dofa error che.");
       });
   };
@@ -50,10 +50,7 @@ function CreateUser() {
 
   const deleteUser = (id) => {
     // fetch(`http://localhost:3000/data/${id}` it's also work in fetch method
-    axios
-      .delete(`http://localhost:3001/data/${id}`, {
-        method: "DELETE",
-      })
+    axios.delete(`http://localhost:3001/data/${id}`)
       .then((response) => {
         getData(response.data);
       });

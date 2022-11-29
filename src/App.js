@@ -9,11 +9,12 @@ import Blog from './componets/Blog';
 import PrivateRoutes from './componets/PrivateRoutes';
 import CreateUser from './crud/CreateUser';
 import EditUser from './crud/EditUser';
+import Filter from './crud/Filter';
 import AddUser from './crud/AddUser';
 import Single from './componets/Single';
-import Regular_expression from './componets/Regular_expression';
-import { Filter } from '@material-ui/icons';
+import Filter_regular_expression from './componets/Filter_regular_expression';
 import Dynamic_Array from './componets/Dynamic_Array';
+import RepeaterForm from './componets/RepeaterForm';
 
 function App() {
 
@@ -33,8 +34,9 @@ function App() {
                 <Route path="/user/filter" exact element={<Filter />} />
                 <Route path="/user/edit/:id" exact element={<EditUser />} />
                 <Route path="/blog/single/:id" exact element={<Single />} />
-                <Route path="/regular-expression" exact element={<Regular_expression />} />
+                <Route path="/filter-regular-expression" exact element={<Filter_regular_expression />} />
                 <Route path="/dynamic-array" exact element={<Dynamic_Array />} />
+                <Route path="/dynamic-form" exact element={<RepeaterForm />} />
               </Route>
               { isLogout ? null 
               :

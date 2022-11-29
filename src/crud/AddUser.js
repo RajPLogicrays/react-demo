@@ -1,6 +1,7 @@
 import { Button } from "@material-ui/core";
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AddUser() {
   const [user, setUser] = useState({id: "",name: ""});
@@ -11,12 +12,14 @@ function AddUser() {
     setUser({ ...user, [name]: value });
   };
 
+  const navigate = useNavigate();
+
   // Post User Data
   const handleSubmit = (e) => {
     axios.post("http://localhost:3001/data", user);
     e.preventDefault();
     setUser({ ...user, id: "", name: "" });
-    window.location.href = "/user";
+    navigate("/user");
   };
 
   return (
@@ -31,7 +34,7 @@ function AddUser() {
                 autoComplete="off"
                 onChange={handleInput}
                 value={user.id}
-                required
+                required={true}
               />
             </div>
 
@@ -42,7 +45,7 @@ function AddUser() {
                 autoComplete="off"
                 onChange={handleInput}
                 value={user.name}
-                required
+                required={true}
               />
             </div>
             <Button color="primary" variant="outlined" type="submit">

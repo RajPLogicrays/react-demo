@@ -1,29 +1,24 @@
-a{
+a {
   text-decoration: none !important;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 500;
   font-size: 22px;
 }
 
-img{
+img {
   max-width: 550px;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-body{
-  background-image: linear-gradient(  95deg, #d4fc79 0%, #96e6a1 100%);
-  font-family: 'Courier New', Courier, monospace
+body {
+  background-image: linear-gradient(95deg, #d4fc79 0%, #96e6a1 100%);
+  font-family: "Courier New", Courier, monospace;
 }
 
-/* .container{
-  max-width: 1200px;
-  margin: 0 auto;
-} */
-
-.logout_submit{
+.logout_submit {
   font-size: 18px;
   padding: 5px 41px;
   border-radius: 15px;
@@ -34,26 +29,23 @@ body{
   font-weight: 500;
 }
 
-input[type=email],input[type=password],input[type=text]{
+input[type="email"],
+input[type="password"],
+input[type="text"] {
   border: 0;
   border-bottom: #c14ccf solid 2px;
   background: transparent;
 }
 
-/* .row{
-  display: flex;
-  flex-wrap: wrap;
-} */
-
-.logo{
+.logo {
   width: 10%;
 }
 
-.navbar{
+.navbar {
   width: 90%;
 }
 
-.navbar ul{
+.navbar ul {
   list-style: none;
 }
 .navbar ul li {
@@ -64,12 +56,13 @@ input[type=email],input[type=password],input[type=text]{
   margin-left: auto;
 }
 
-.login_form , .registration_form{
+.login_form,
+.registration_form {
   width: 100%;
   text-align: center;
 }
 
-.logout_btn{
+.logout_btn {
   border: 1px solid;
   padding: 5px 25px;
   color: blue;
@@ -80,4 +73,44 @@ input[type=email],input[type=password],input[type=text]{
 button.logout_btn:hover {
   background: transparent;
   border: 1px solid;
+}
+
+.add-new-row {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.userName {
+  font-size: 18px;
+  line-height: 33px;
+  font-weight: 500;
+  color: rgb(0, 17, 255);
+}
+/* Mega Menu */
+
+.main_menu_flex {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+}
+
+.sub_menu {
+  background: wheat;
+  padding: 15px !important;
+  position: absolute !important;
+  display: none;
+}
+
+li:hover .sub_menu {
+/* .show{ */
+  display: block;
+}
+
+.sub_menu a {
+  color: #000 !important;
+}
+
+.dropdown {
+  padding: 0;
 }

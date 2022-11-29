@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Regular_expression() {
+function Filter_regular_expression() {
     const string =
         "Lorem ipsum dolor sit amet sit amet consectetur adipisicing elit sit amet. Repellendus sit amet magnam iste voluptates nobis ebitis facilis molestiae cupiditate consequuntur delectus non quae ut aliquid nesciunt voluptas placeat, qui myName aut reiciendis!";
 
@@ -44,7 +44,7 @@ function Regular_expression() {
                         type="text"
                         value={findValue}
                         onChange={(e) => setFindValue(e.target.value)}
-                        required
+                        required={true}
                     />
                 </label>
                 <input type="submit" />
@@ -53,4 +53,4 @@ function Regular_expression() {
     );
 }
 
-export default Regular_expression;
+export default Filter_regular_expression;
