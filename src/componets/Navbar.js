@@ -40,6 +40,14 @@ function Navbar() {
                     title: "Dynamic Form",
                     url: "/dynamic-form",
                 },
+                {
+                    title: "Modal",
+                    url: "/modal",
+                },
+                {
+                    title: "Main Form",
+                    url: "/main-form",
+                },
             ],
         },
     ];

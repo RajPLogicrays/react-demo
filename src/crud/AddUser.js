@@ -30,7 +30,7 @@ function AddUser() {
             <div className="col-12">
               <label htmlFor="id">ID</label>
               <input
-                name="id"
+                name="id" 
                 autoComplete="off"
                 onChange={handleInput}
                 value={user.id}

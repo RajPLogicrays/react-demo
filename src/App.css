@@ -87,6 +87,7 @@ button.logout_btn:hover {
   font-weight: 500;
   color: rgb(0, 17, 255);
 }
+
 /* Mega Menu */
 
 .main_menu_flex {
@@ -102,8 +103,7 @@ button.logout_btn:hover {
   display: none;
 }
 
-li:hover .sub_menu {
-/* .show{ */
+li:hover .sub_menu , .show {
   display: block;
 }
 
@@ -113,4 +113,27 @@ li:hover .sub_menu {
 
 .dropdown {
   padding: 0;
+}
+
+.hide{
+  display: none;
+}
+
+.success_modal{
+  z-index: 999999;
+  width: 100%;
+  position: absolute;
+  height: 100%;
+  top: 0;
+}
+
+.success_modal.show {
+  background: linear-gradient(to right,rgba(0,0,0,.8),rgba(0,0,0,.8));
+  color: #FFFF;
+}
+
+.main_modal_container{
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }

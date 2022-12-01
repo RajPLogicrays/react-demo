@@ -25,7 +25,7 @@ function Product() {
   return (
     <>
       <Container className="mt-5">
-        <Row>
+        <Row className="justify-content-center">
           {products.map((product,index) =>{
             return(
               <Col key={index} md={3}>

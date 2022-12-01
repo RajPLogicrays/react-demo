@@ -46,7 +46,11 @@ function RepeaterForm() {
                       <input type="text" name="lastName" value={input.lastName} onChange={event => handleFormChange(index, event)} placeholder="Enter Your Last name" required />
                     </Col>
                     <Col>
+                    {index === 0 ?
+                      <Button onClick={() => removeFields(index)} disabled>Remove</Button>          
+                      :
                       <Button onClick={() => removeFields(index)}>Remove</Button>
+                    }
                     </Col>
                   </Row>
                 )
