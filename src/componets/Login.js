@@ -1,11 +1,10 @@
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
 import { Field, Form, Formik } from "formik";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import Lock from "@material-ui/icons/Lock";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import axios from 'axios';
+import { Button } from "react-bootstrap";
 
 function Login() {
 
@@ -54,7 +53,6 @@ function Login() {
               {({ errors, touched, handleSubmit }) => (
                 <Form onSubmit={handleSubmit}>
                   <div style={{color: "red"}}>{error ? error : ""}</div>
-                  <MailOutlineIcon />
                   <Field placeholder="Email" name="email" type="email" />
                   {errors.email && touched.email ? (
                     <div style={{color: "red"}} >{errors.email}</div>
@@ -62,14 +60,13 @@ function Login() {
 
                   <br />
                   <br />
-                  <Lock />
                   <Field placeholder="Password" name="password" type="password" />
                   {errors.password && touched.password ? (
                     <div style={{color: "red"}}>{errors.password}</div>
                   ) : null}
                   <br />
                   <br />
-                  <Button color="primary" variant="outlined" type="submit">
+                  <Button className="btn" type="submit">
                     Log in
                   </Button>
                 </Form>

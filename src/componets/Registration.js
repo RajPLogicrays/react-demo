@@ -1,12 +1,9 @@
-import { Button } from "@material-ui/core";
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { Link } from "react-router-dom";
-import PersonIcon from "@material-ui/icons/Person";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import Lock from "@material-ui/icons/Lock";
 import * as Yup from "yup";
 import axios from "axios";
+import { Button } from "react-bootstrap";
 
 function Registration() {
   const ResgisterForm = Yup.object().shape({
@@ -55,35 +52,30 @@ function Registration() {
           >
             {({ errors, touched, handleSubmit }) => (
               <Form onSubmit={handleSubmit}>
-                <PersonIcon />
                 <Field placeholder="First Name" name="first_name" type="text" />
                 {errors.first_name && touched.first_name ? (
                   <div style={{ color: "red" }}>{errors.first_name}</div>
                 ) : null}
                 <br />
                 <br />
-                <PersonIcon />
                 <Field placeholder="Last Name" name="last_name" type="text" />
                 {errors.last_name && touched.last_name ? (
                   <div style={{ color: "red" }}>{errors.last_name}</div>
                 ) : null}
                 <br />
                 <br />
-                <MailOutlineIcon />
                 <Field placeholder="Email" name="email" type="email" />
                 {errors.email && touched.email ? (
                   <div style={{ color: "red" }}>{errors.email}</div>
                 ) : null}
                 <br />
                 <br />
-                <Lock />
                 <Field placeholder="Password" name="password" type="password" />
                 {errors.password && touched.password ? (
                   <div style={{ color: "red" }}>{errors.password}</div>
                 ) : null}
                 <br />
                 <br />
-                <Lock />
                 <Field
                   placeholder="Confirm Password"
                   name="confirm_password"
@@ -94,7 +86,7 @@ function Registration() {
                 ) : null}
                 <br />
                 <br />
-                <Button color="primary" variant="outlined" type="submit">
+                <Button className="btn" type="submit">
                   Registration
                 </Button>
               </Form>

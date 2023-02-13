@@ -1,8 +1,6 @@
-import { Button } from "@material-ui/core";
-import { Delete, Edit } from "@material-ui/icons";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Table } from "react-bootstrap";
+import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function CreateUser() {
@@ -112,12 +110,12 @@ function CreateUser() {
                     <td>{item.name}</td>
                     <td className="text-center">
                       <Link to={`/user/edit/${item.id}`}>
-                        <Edit />
+                        Edit
                       </Link>
                     </td>
                     <td>
                       <Button id={item.id} onClick={() => deleteUser(item.id)}>
-                        <Delete />
+                        Delete
                       </Button>
                     </td>
                   </tr>

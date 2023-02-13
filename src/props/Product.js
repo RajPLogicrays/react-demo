@@ -35,7 +35,6 @@ function Product() {
           })}
       </Row>
     </Container>
-
     </>
   )
 }

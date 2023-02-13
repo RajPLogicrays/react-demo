@@ -1,19 +1,35 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 
-function Home(){
-  return (
-    <>
-      <Container>
-        <Row>
-          <Col>
-            <h1>Home</h1>
-          </Col>
-        </Row>
-      </Container>
-    </>
-  );
+class Home extends React.Component {
+
+  constructor(){
+    super();
+    this.state = {
+      name: "Home",
+      data: 0,
+    }
+  }
+
+  increment(){
+    this.setState({data: this.state.data + 1 });
+    this.setState({name: "Welcome"});
+  }
+
+  render(){
+    return (
+      <>
+        <Container>
+          <Row>
+            <Col>
+              <h1>{this.state.name} {this.state.data}</h1>
+              <button onClick={()=>this.increment()}>Update Data</button>
+            </Col>
+          </Row>
+        </Container>
+      </>
+    );
+  }
 }
 
 export default Home;
-

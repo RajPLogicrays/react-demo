@@ -1,6 +1,6 @@
-import { Button } from '@material-ui/core'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Button } from 'react-bootstrap';
 import { useNavigate, useParams } from 'react-router-dom'
 
 function EditUser() {
@@ -61,7 +61,7 @@ function EditUser() {
                 required
               />
             </div>
-              <Button color="primary" variant="outlined" type="submit">
+              <Button type="submit">
                   Update
               </Button>      
           </form>

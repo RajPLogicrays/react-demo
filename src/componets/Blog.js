@@ -1,7 +1,6 @@
-import { Button } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Row } from 'react-bootstrap';
+import { Button, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 // import Props from './Filter';
 
@@ -13,7 +12,7 @@ export default function Blog() {
     setCount(count + 1) // correct 
   }
   const decrement = () => {
-    // count -= 1; 
+    // count -= 1; // wrong method
     setCount(count - 1); // correct 
   }
 
@@ -32,9 +31,9 @@ export default function Blog() {
           <h1>Blog</h1>
           {/* <Props name="Raj" id="1" /> */}
           <div>
-            <Button color="primary" variant="outlined" onClick={decrement}>-</Button>
+            <Button onClick={decrement}>-</Button>
             <p>You clicked {count} times</p>
-            <Button color="primary" variant="outlined" onClick={increment}>+</Button>
+            <Button onClick={increment}>+</Button>
           </div>
         </div>
       </div>

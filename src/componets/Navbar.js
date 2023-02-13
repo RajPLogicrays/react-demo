@@ -19,10 +19,24 @@ function Navbar() {
         {
             title: "Blog",
             url: "/blog",
-        },
-        {
-            title: "User",
-            url: "/user",
+            component: [
+                {
+                    title: "Use Effect",
+                    url: "/use-effect",
+                },
+                {
+                    title: 'Memo Hooks',
+                    url: 'memo-hooks'
+                },
+                {
+                    title: "Life Cycle",
+                    url: "/life-cycle",
+                },
+                {
+                    title: "Did mount",
+                    url: "/did-mount",
+                }
+            ]
         },
         {
             title: "Products",
@@ -50,6 +64,10 @@ function Navbar() {
                 },
             ],
         },
+        {
+            title: "User",
+            url: "/user",
+        },
     ];
 
     function getWindowSize() {
@@ -69,7 +87,7 @@ function Navbar() {
         return () => {
             window.removeEventListener("resize", handleWindowResize);
         };
-    }, []);
+    });
 
     return (
         <>
@@ -88,72 +106,91 @@ function Navbar() {
                                 <>
                                     {megamenus.map((menus, index) => {
                                         return (
-                                            <div key={index}>
+                                            <li key={index}>
                                                 {menus.product ? (
+
                                                     <>
-                                                        <li>
-                                                            {windowSize.innerWidth <= 393 && menus.product ? (
-                                                                <>
-                                                                    <Button
-                                                                        to={menus.url}
-                                                                        className="px-3 text-decoration-none"
-                                                                    >
-                                                                        {menus.title}
-                                                                    </Button>
-                                                                    <ul className={`dropdown sub_menu`}>
-                                                                        {menus.product.map((menu, subindex) => {
-                                                                            return (
-                                                                                <li key={subindex}>
-                                                                                    <Link
-                                                                                        to={menu.url}
-                                                                                        className="px-3 text-decoration-none"
-                                                                                    >
-                                                                                        {menu.title}
-                                                                                    </Link>
-                                                                                </li>
-                                                                            );
-                                                                        })}
-                                                                    </ul>
-                                                                </>
-                                                            ) : (
-                                                                <>
-                                                                    <Link
-                                                                        to={menus.url}
-                                                                        className="px-3 text-decoration-none"
-                                                                    >
-                                                                        {menus.title}
-                                                                    </Link>
-                                                                    <ul className={`dropdown sub_menu`}>
-                                                                        {menus.product.map((menu, subindex) => {
-                                                                            return (
-                                                                                <li key={subindex}>
-                                                                                    <Link
-                                                                                        to={menu.url}
-                                                                                        className="px-3 text-decoration-none"
-                                                                                    >
-                                                                                        {menu.title}
-                                                                                    </Link>
-                                                                                </li>
-                                                                            );
-                                                                        })}
-                                                                    </ul>
-                                                                </>
-                                                            )}
-                                                        </li>
+                                                        {windowSize.innerWidth <= 393 && menus.product ? (
+                                                            <>
+                                                                <Button
+                                                                    to={menus.url}
+                                                                    className="px-3 text-decoration-none"
+                                                                >
+                                                                    {menus.title}
+                                                                </Button>
+                                                                <ul className={`dropdown sub_menu`}>
+                                                                    {menus.product.map((menu, subindex) => {
+                                                                        return (
+                                                                            <li key={subindex}>
+                                                                                <Link
+                                                                                    to={menu.url}
+                                                                                    className="px-3 text-decoration-none"
+                                                                                >
+                                                                                    {menu.title}
+                                                                                </Link>
+                                                                            </li>
+                                                                        );
+                                                                    })}
+                                                                </ul>
+                                                            </>
+                                                        ) : (
+                                                            <>
+                                                                <Link
+                                                                    to={menus.url}
+                                                                    className="px-3 text-decoration-none"
+                                                                >
+                                                                    {menus.title}
+                                                                </Link>
+                                                                <ul className={`dropdown sub_menu`}>
+                                                                    {menus.product.map((menu, subindex) => {
+                                                                        return (
+                                                                            <li key={subindex}>
+                                                                                <Link
+                                                                                    to={menu.url}
+                                                                                    className="px-3 text-decoration-none"
+                                                                                >
+                                                                                    {menu.title}
+                                                                                </Link>
+                                                                            </li>
+                                                                        );
+                                                                    })}
+                                                                </ul>
+                                                            </>
+                                                        )}
                                                     </>
                                                 ) : (
-                                                    <>
-                                                        <li>
-                                                            <Link
-                                                                className="px-3 text-decoration-none"
-                                                                to={menus.url}
-                                                            >
-                                                                {menus.title}
-                                                            </Link>
-                                                        </li>
-                                                    </>
+                                                    null
                                                 )}
-                                            </div>
+
+                                                {menus.component ? (
+                                                    <>
+                                                        <Link to={menus.url}  className="px-3 text-decoration-none">
+                                                            {menus.title}
+                                                        </Link>
+                                                        <ul className={`dropdown sub_menu`}>
+                                                            {menus.component.map((compon, componindex) => {
+                                                                return (
+                                                                    <li key={componindex}>
+                                                                        <Link to={compon.url} className="px-3 text-decoration-none">
+                                                                            {compon.title}
+                                                                        </Link>
+                                                                    </li>
+                                                                );
+                                                            })}
+                                                        </ul>
+                                                    </>
+                                                )
+                                                    : (null)
+                                                }
+
+                                                {menus.product || menus.component ?
+                                                    null :
+                                                    <Link className="px-3 text-decoration-none" to={menus.url} >
+                                                        {menus.title}
+                                                    </Link>
+                                                }
+
+                                            </li>
                                         );
                                     })}
 
