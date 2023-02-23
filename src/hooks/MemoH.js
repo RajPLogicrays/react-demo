@@ -3,14 +3,14 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 
 function MemoH() {
 
-    const [count, setCount] = useState(5);
-    const [price, setPrice] = useState(10);
-
+    const [count, setCount] = useState(0);
+    
+    const [price, setPrice] = useState(0);
 
     const mainDataUpdate = useMemo(
         function updateCount() {
             console.log("updateCount");
-            return count + 5;
+                return count;
         },[count]  // This is coundition for memo hooks,[count]
     )
 
@@ -19,13 +19,12 @@ function MemoH() {
             <Container>
                 <Row>
                     <Col>
-                        <h2>This is Memo count {count}</h2>
-                        <h2>This is Memo count {price}</h2>
-                        <h2>{mainDataUpdate}</h2>
+                        <h2>This is Memo counter {mainDataUpdate}</h2>
+                        <h2>This is Simpl counter {price}</h2>
                     </Col>
                     <Col>
                         <Button onClick={() => setCount(count + 1)} className="d-block mb-3">Update Count</Button>
-                        <Button onClick={() => setPrice(price * 2)} >Update Price</Button>
+                        <Button onClick={() => setPrice(price + 1)} >Update Price</Button>
                     </Col>
                 </Row>
             </Container>

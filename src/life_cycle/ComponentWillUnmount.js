@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Col, Container, Row } from 'react-bootstrap';
 
 class ComponentWillUnmount extends Component {
     componentWillUnmount() {
@@ -7,7 +8,13 @@ class ComponentWillUnmount extends Component {
 
     render() {
         return (
-            <h5>componentWillUnmount</h5>
+            <Container>
+                <Row>
+                    <Col>
+                        <h5>componentWillUnmount</h5>
+                    </Col>
+                </Row>
+            </Container>
         )
     }
 }

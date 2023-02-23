@@ -35,7 +35,15 @@ function Navbar() {
                 {
                     title: "Did mount",
                     url: "/did-mount",
-                }
+                },
+                {
+                    title: "Pure Component",
+                    url: "/pure-component",
+                },
+                {
+                    title: "useRef",
+                    url: "useref-hooks"
+                },
             ]
         },
         {
