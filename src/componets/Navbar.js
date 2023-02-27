@@ -44,6 +44,10 @@ function Navbar() {
                     title: "useRef",
                     url: "useref-hooks"
                 },
+                {
+                    title: "Hoc hooks",
+                    url: "hoc",
+                },
             ]
         },
         {

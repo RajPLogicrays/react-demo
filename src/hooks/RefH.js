@@ -7,9 +7,10 @@ function RefH() {
 
     const handleInput = () => {
         console.log(inputRef);
-        inputRef.current.value = "Raju Bhai";
+        // inputRef.current.value = "Raju Bhai";
         inputRef.current.focus();
-        inputRef.current.style.backgroundColor = "Red";
+        inputRef.current.style.textTransform = "capitalize";
+        // inputRef.current.style.backgroundColor = "Red";
     }
     
     return (

@@ -1,19 +1,16 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './componets/Login';
-import Registration from './componets/Registration';
 import Home from './componets/Home';
 import Navbar from './componets/Navbar';
-import Blog from './componets/Blog';
+import Blog from './blog/Blog';
 import PrivateRoutes from './componets/PrivateRoutes';
 import CreateUser from './crud/CreateUser';
 import EditUser from './crud/EditUser';
 import Filter from './crud/Filter';
 import AddUser from './crud/AddUser';
-import Single from './componets/Single';
+import Single from './blog/Single';
 import Filter_regular_expression from './componets/Filter_regular_expression';
-import Dynamic_Array from './componets/Dynamic_Array';
 import RepeaterForm from './componets/RepeaterForm';
 import Product from './props/Product';
 import Modal from './componets/Modal';
@@ -25,6 +22,10 @@ import Purecomponent from './life_cycle/PureComponent';
 import Useeffect from './hooks/Useeffect';
 import MemoH from './hooks/MemoH';
 import RefH from './hooks/RefH';
+import Hoc from './hooks/Hoc';
+import PageNotFound from './componets/PageNotFound';
+import Login from './author/SignIn';
+import Registration from './author/Signup';
 
 function App() {
 
@@ -62,10 +63,6 @@ function App() {
     {
       Path: "/filter-regular-expression",
       component: <Filter_regular_expression />
-    },
-    {
-      Path: "/dynamic-array",
-      component: <Dynamic_Array />
     },
     {
       Path: "/dynamic-form",
@@ -111,6 +108,14 @@ function App() {
       Path: "/useref-hooks",
       component: <RefH />
     },
+    {
+      Path: "/hoc",
+      component: <Hoc />
+    },
+    {
+      Path: "*",
+      component: <PageNotFound />
+    }
   ];
 
   return (
@@ -122,7 +127,7 @@ function App() {
             <Route element={<PrivateRoutes />}>
               {
                 routing.map((item, index) => {
-                  return <Route key={index} path={item.Path} element={item.component} />
+                  return <Route key={index} exact path={item.Path} element={item.component} />
                 })
               }
             </Route>

@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 function ForwardRefH(props, ref){
     return(
         <>
-            <input type="text" ref={ref} />
+            <textarea type="text" ref={ref} />
         </>
     )
 }

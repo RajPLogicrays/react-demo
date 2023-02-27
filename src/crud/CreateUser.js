@@ -108,7 +108,7 @@ function CreateUser() {
                   <tr key={i}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
-                    <td className="text-center">
+                    <td>
                       <Link to={`/user/edit/${item.id}`}>
                         Edit
                       </Link>

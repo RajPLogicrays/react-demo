@@ -4,7 +4,6 @@ import { Button, Col, Container, Row } from 'react-bootstrap';
 function Modal(){
 
     const [modal, setModal] = useState(false);
-
     const [toggle, setToggle] = useState(true);
 
     return(

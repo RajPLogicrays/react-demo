@@ -1,9 +1,18 @@
-// import axios from 'axios';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { Button, Col, Container, FormSelect, Row, Table } from 'react-bootstrap';
 
 function MainForm() {
+
+    const getData = () => {
+        axios.get(`http://localhost:3001/user`)
+            .then(({ data }) => { setData(data); })
+            .catch(() => { alert("Error Bro!!"); });
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
 
     const [student, setStudent] = useState({
         fname: "",
@@ -28,7 +37,6 @@ function MainForm() {
         // setStudent(student =>({...student, [event.target.name]:event.target.value}))
         // This is multiple value insert method (Array)
         setStudent(student => ({ ...student, [event.target.name]: event.target.name === "language" ? [...student.language, event.target.value] : event.target.value }));
-        getData();
     }
 
     const submit = (e) => {
@@ -36,71 +44,61 @@ function MainForm() {
         e.preventDefault();
         console.log(student);
         // For, Exist value reset
-        setStudent({ ...setStudent, fname: "", favColor: "", geander: "", language: "", massage: "", date: "",state: "",city: "",country: "", });
+        setStudent({ ...setStudent, fname: "", favColor: "", geander: "", language: "", massage: "", date: "", state: "", city: "", country: "", });
         getData();
     }
 
 
-    const countries = [
-        { id: 1, name: 'India' },
-        { id: 2, name: 'US' },
-    ];
+    // const countries = [
+    //     { id: 1, name: 'India' },
+    //     { id: 2, name: 'US' },
+    // ];
 
-    const states = [
-        { id: 1, countryId: 1, name: 'Gujrat' },
-        { id: 2, countryId: 1, name: 'Goa' },
-        { id: 3, countryId: 2, name: 'Colorado' },
-        { id: 4, countryId: 2, name: 'Texas' },
+    // const states = [
+    //     { id: 1, countryId: 1, name: 'Gujrat' },
+    //     { id: 2, countryId: 1, name: 'Goa' },
+    //     { id: 3, countryId: 2, name: 'Colorado' },
+    //     { id: 4, countryId: 2, name: 'Texas' },
 
-    ];
+    // ];
 
-    const citys = [
-        { id: 1, stateId: 1, name: 'Junagadh' },
-        { id: 2, stateId: 1, name: 'Somnath' },
-        { id: 3, stateId: 2, name: 'Saligao' },
-        { id: 4, stateId: 2, name: 'Margoa' },
-        { id: 5, stateId: 3, name: 'Canon City' },
-        { id: 6, stateId: 3, name: 'Holly' },
-        { id: 7, stateId: 4, name: 'Alvin' },
-        { id: 8, stateId: 4, name: 'Cedar Hill' },
+    // const citys = [
+    //     { id: 1, stateId: 1, name: 'Junagadh' },
+    //     { id: 2, stateId: 1, name: 'Somnath' },
+    //     { id: 3, stateId: 2, name: 'Saligao' },
+    //     { id: 4, stateId: 2, name: 'Margoa' },
+    //     { id: 5, stateId: 3, name: 'Canon City' },
+    //     { id: 6, stateId: 3, name: 'Holly' },
+    //     { id: 7, stateId: 4, name: 'Alvin' },
+    //     { id: 8, stateId: 4, name: 'Cedar Hill' },
 
-    ];
+    // ];
 
-    const [country, setCountry] = useState([]);
-    const [state, setState] = useState([]);
-    const [city, setCity] = useState([]);
+    // const [country, setCountry] = useState([]);
+    // const [state, setState] = useState([]);
+    // const [city, setCity] = useState([]);
 
-    useEffect(() => {
-        setCountry(countries);
-    }, [])
+    // useEffect(() => {
+    //     setCountry(countries);
+    // }, [])
 
+    // const handleContery = (id) => {
+    //     const filterState = states.filter(s => s.countryId === id);
+    //     country && setState(filterState);
+    // }
 
-    const handleContery = (id) => {
-        const filterState = states.filter(s => s.countryId == id);
-        country && setState(filterState);
-    }
-
-    const handleSate = (id) => {
-        const filterCitey = citys.filter(c => c.stateId == id);
-        country && state && setCity(filterCitey);
-    }
-
-    const getData = () => {
-        axios.get(`http://localhost:3001/user`)
-        .then(({ data }) => {setData(data);})
-        .catch(() => {alert("Error Bro!!");});
-    };
-
-    useEffect(() => {
-        getData();
-    }, []);
+    // const handleSate = (id) => {
+    //     const filterCitey = citys.filter(c => c.stateId === id);
+    //     country && state && setCity(filterCitey);
+    // }
 
     const deleteUser = (id) => {
         axios.delete(`http://localhost:3001/user/${id}`)
-          .then((response) => {
-            getData(response.data);
-          });
-      };
+            .then((response) => {
+                getData(response.data);
+            });
+    };
+
     return (
         <Container className="mt-5">
             <Row>
@@ -137,7 +135,7 @@ function MainForm() {
                             <input type="date" name="date" value={student.date} onChange={formHandel} />
                         </div>
                         <br />
-                        <div className="country_state_city">
+                        {/* <div className="country_state_city">
                             <select onChange={(e) => handleContery(e.target.value)} name="country" value={student.country}>
                                 <option value="0">Section Country</option>
                                 {country && country !== undefined ? country.map((ctr, index) => {
@@ -174,11 +172,11 @@ function MainForm() {
                                 }
                             </select>
                         </div>
-                        <br />
+                        <br /> */}
                         <Button type="submit">Submit</Button>
                     </form>
                 </Col>
-                <Col md={8}>
+                <Col md={6}>
                     <Table striped bordered>
                         <tbody>
                             <tr>
@@ -187,19 +185,19 @@ function MainForm() {
                                 <td><b>Color</b></td>
                                 <td><b>Geander</b></td>
                                 <td><b>Languages</b></td>
-                                <td><b>Massage</b></td>
+                                {/* <td><b>Massage</b></td> */}
                                 <td><b>Date</b></td>
                             </tr>
                             {data.map((item, i) => (
                                 <tr key={i}>
                                     <td> <Button title="On click to delete this is id." id={item.id} onClick={() => deleteUser(item.id)}>
-                                    {item.id}
+                                        {item.id}
                                     </Button></td>
                                     <td>{item.fname}</td>
                                     <td>{item.favColor}</td>
                                     <td>{item.geander}</td>
                                     <td>{item.language.toString()}</td>
-                                    <td>{item.massage}</td>
+                                    {/* <td>{item.massage}</td> */}
                                     <td>{item.date}</td>
                                 </tr>
                             ))}

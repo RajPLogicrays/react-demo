@@ -22,7 +22,7 @@ function HocRed(props) {
 function HocWhite(props) {
     return (
         <div style={{ backgroundColor: "white", width: 350 }}>
-            Jay Hind
+            <p>Jay Hind</p>
             <props.cmp />
         </div>
     )
@@ -31,7 +31,7 @@ function HocWhite(props) {
 function HocGreen(props) {
     return (
         <div style={{ backgroundColor: "green", width: 550 }}>
-            This is second component same as Red component.
+            <p>This is second component same as Red component.</p>
             <props.cmp />
         </div>
     )
