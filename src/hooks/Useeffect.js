@@ -8,7 +8,7 @@ function Useeffect() {
 
     // useEffect(() => {
     //     console.log("useEffect count", props.count);
-    // }, [count]) 
+    // }, [count])
 
     return (
         <>

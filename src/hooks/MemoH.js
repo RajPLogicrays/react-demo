@@ -43,10 +43,12 @@ function CapitalizedText() {
             return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
         }).join(' '));
     }
+    
     return (
         <div>
+            <h1>Test Convert To Capitalized</h1>
             <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
-            <button onClick={handleClick}>Convert to Capitalized</button>
+            <button onClick={handleClick}>click!</button>
         </div>
     );
 }

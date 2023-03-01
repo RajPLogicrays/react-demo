@@ -36,16 +36,22 @@ function MainForm() {
         // This is only single value insert method, without arrya
         // setStudent(student =>({...student, [event.target.name]:event.target.value}))
         // This is multiple value insert method (Array)
+        // console.log(event.target.value);
         setStudent(student => ({ ...student, [event.target.name]: event.target.name === "language" ? [...student.language, event.target.value] : event.target.value }));
     }
 
     const submit = (e) => {
-        axios.post("http://localhost:3001/user", student);
         e.preventDefault();
-        console.log(student);
+        axios.post("http://localhost:3001/user", student)
+            .then((response) => {
+                if (response) {
+                    setStudent({ ...setStudent, fname: "", favColor: "", geander: "", language: "", massage: "", date: "", state: "", city: "", country: "", });
+                    getData();
+                }
+                console.log(response);
+            })
+        // console.log(student);
         // For, Exist value reset
-        setStudent({ ...setStudent, fname: "", favColor: "", geander: "", language: "", massage: "", date: "", state: "", city: "", country: "", });
-        getData();
     }
 
 

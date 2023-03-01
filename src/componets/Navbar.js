@@ -47,7 +47,7 @@ function Navbar() {
                 {
                     title: "Hoc hooks",
                     url: "hoc",
-                },
+                }
             ]
         },
         {
@@ -74,6 +74,10 @@ function Navbar() {
                     title: "Main Form",
                     url: "/main-form",
                 },
+                {
+                    title: "Previous state",
+                    url: "pre-state-value",
+                }
             ],
         },
         {

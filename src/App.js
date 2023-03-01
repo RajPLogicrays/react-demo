@@ -26,6 +26,8 @@ import Hoc from './hooks/Hoc';
 import PageNotFound from './componets/PageNotFound';
 import Login from './author/SignIn';
 import Registration from './author/Signup';
+import PreState from './previous-value/PreState';
+import StateWithObject from './componets/StateWithObject';
 
 function App() {
 
@@ -115,6 +117,14 @@ function App() {
     {
       Path: "*",
       component: <PageNotFound />
+    },
+    {
+      Path: "/pre-state-value",
+      component: <PreState />
+    },
+    {
+      Path: "/state-with-object",
+      component: <StateWithObject />
     }
   ];
 
