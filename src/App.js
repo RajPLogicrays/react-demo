@@ -28,6 +28,9 @@ import Login from './author/SignIn';
 import Registration from './author/Signup';
 import PreState from './previous-value/PreState';
 import StateWithObject from './componets/StateWithObject';
+import PromiseCompo from './componets/PromiseCompo';
+import UseCallBack from './hooks/UseCallBack';
+import Accordion from './componets/Accordion';
 
 function App() {
 
@@ -125,6 +128,18 @@ function App() {
     {
       Path: "/state-with-object",
       component: <StateWithObject />
+    },
+    {
+      Path: "/promise-component",
+      component: <PromiseCompo />
+    },
+    {
+      Path: "/use-call-back",
+      component: <UseCallBack />
+    },
+    {
+      Path: "/accordion",
+      component: <Accordion />
     }
   ];
 

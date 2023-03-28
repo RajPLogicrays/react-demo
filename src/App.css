@@ -137,3 +137,11 @@ li:hover .sub_menu , .show {
   width: 100%;
   justify-content: center;
 }
+
+.accordion_title{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  text-transform: capitalize;
+  padding: 10px;
+}

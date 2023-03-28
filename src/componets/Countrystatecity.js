@@ -34,19 +34,19 @@ function Countrystatecity() {
 
     useEffect(() => {
         setCountry(countries);
-        setState('');
-        setCity('');
+        setState();
+        setCity();
     }, [])
 
 
     const handleContery = (id) => {
-        const filterState = states.filter(s => s.countryId == id);
+        const filterState = states.filter(s => s.countryId === id);
         setState(filterState);
         setCity('');
     }
 
     const handleSate = (id) => {
-        const filterCitey = citys.filter(c => c.stateId == id);
+        const filterCitey = citys.filter(c => c.stateId === id);
         setCity(filterCitey);
     }
 
