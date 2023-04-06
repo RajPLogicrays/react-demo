@@ -33,6 +33,7 @@ import Accordion from './componets/Accordion';
 import Filter_Regular_Expression from './componets/Filter_Regular_Expression';
 import LoadMore from './loadMore/LoadMore';
 import ScrollLoadMore from './loadMore/ScrollLoadMore';
+import TrafficSignal from './componets/TrafficSignal';
 
 function App() {
 
@@ -152,8 +153,11 @@ function App() {
     {
       Path: "ScrollLoadMore",
       component: <ScrollLoadMore />
-    }
-    
+    },
+    {
+      Path: "traffic-signal",
+      component: <TrafficSignal />
+    },    
   ];
 
   return (
