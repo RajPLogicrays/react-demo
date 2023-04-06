@@ -8,19 +8,19 @@ function Single() {
 
   const [posts, setPosts] = useState();
 
-  useEffect(()=> {
+  useEffect(() => {
     axios.get(`https://awagindia.org/wp-json/wp/v2/posts/${id}`)
-    .then((posts) => {setPosts(posts.data);})
+      .then((posts) => { setPosts(posts.data); })
   }, [id]);
 
   return (
     <Container>
       <Row>
         <Col>
-          {posts && 
+          {posts &&
             <>
               <h2>{posts.title.rendered}</h2>
-              <div dangerouslySetInnerHTML={{__html:posts.content.rendered}} />
+              <div className='post-info' dangerouslySetInnerHTML={{ __html: posts.content.rendered }} />
             </>
           }
         </Col>

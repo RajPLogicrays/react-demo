@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 class Did_mount extends React.Component {
     
     componentDidMount() {
-        console.log("Component mounted 3");
+        console.log("Component did mount 3");
         // You can called API here
     }
 

@@ -1,20 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Button, Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 // import Props from './Filter';
 
 export default function Blog() {
-
-  const [count, setCount] = useState(0);
-  const increment = () => {
-    // count += 1; 
-    setCount(count + 1) // correct 
-  }
-  const decrement = () => {
-    // count -= 1; // wrong method
-    setCount(count - 1); // correct 
-  }
 
   const [posts, setPosts] = useState([]);
 
@@ -26,24 +16,13 @@ export default function Blog() {
 
   return (
     <>
-      <div className="container">
-        <div>
-          <h1>Blog</h1>
-          {/* <Props name="Raj" id="1" /> */}
-          <div>
-            <Button onClick={decrement}>-</Button>
-            <p>You clicked {count} times</p>
-            <Button onClick={increment}>+</Button>
-          </div>
-        </div>
-      </div>
       <Container>
         <Row>
           <Col>
             {posts && posts?.map((post, index) =>
               <div className='col-12' key={index}>
-                <h1><Link to={`single/${post.id}`}>{post.title.rendered}</Link></h1>
-                <div className='post-info' dangerouslySetInnerHTML={{ __html: post.content.rendered }} />
+                <h1>{index} - <Link to={`single/${post.id}`}>{post.title.rendered}</Link></h1>
+                {/* <div className='post-info' dangerouslySetInnerHTML={{ __html: post.content.rendered }} /> */}
               </div>
             )}
           </Col>
@@ -52,18 +31,3 @@ export default function Blog() {
     </>
   )
 }
-
-// import React from 'react'
-
-// const Props = (props) => {
-//   return (
-//     <>
-//         <h1>My Name {props.name}</h1>
-//         <h1>My Id {props.id}</h1>
-//     </>
-//   )
-// }
-
-// export default Props
-
-// <Blog name="raj" />

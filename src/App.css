@@ -144,4 +144,10 @@ li:hover .sub_menu , .show {
   background-color: #fff;
   text-transform: capitalize;
   padding: 10px;
+  cursor: pointer;
+}
+
+.accordion_content {
+  padding: 15px;
+  background-color: bisque;
 }

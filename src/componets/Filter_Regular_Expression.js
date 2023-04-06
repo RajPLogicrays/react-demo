@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Filter_regular_expression() {
+function Filter_Regular_Expression() {
     const string =
         "Lorem ipsum dolor sit amet sit amet consectetur adipisicing elit sit amet. Repellendus sit amet magnam iste voluptates nobis ebitis facilis molestiae cupiditate consequuntur delectus non quae ut aliquid nesciunt voluptas placeat, qui myName aut reiciendis!";
 
@@ -53,4 +53,4 @@ function Filter_regular_expression() {
     );
 }
 
-export default Filter_regular_expression;
+export default Filter_Regular_Expression;

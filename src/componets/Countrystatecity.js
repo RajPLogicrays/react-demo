@@ -4,7 +4,7 @@ function Countrystatecity() {
 
     const countries = [
         { id: 1, name: 'India' },
-        { id: 2, name: 'US' },
+        { id: 2, name: 'US' }
     ];
 
     const states = [
@@ -34,9 +34,9 @@ function Countrystatecity() {
 
     useEffect(() => {
         setCountry(countries);
-        setState();
-        setCity();
-    }, [])
+        // setState();
+        // setCity();
+    });
 
 
     const handleContery = (id) => {

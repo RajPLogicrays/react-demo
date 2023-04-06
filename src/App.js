@@ -10,7 +10,6 @@ import EditUser from './crud/EditUser';
 import Filter from './crud/Filter';
 import AddUser from './crud/AddUser';
 import Single from './blog/Single';
-import Filter_regular_expression from './componets/Filter_regular_expression';
 import RepeaterForm from './componets/RepeaterForm';
 import Product from './props/Product';
 import Modal from './componets/Modal';
@@ -31,6 +30,9 @@ import StateWithObject from './componets/StateWithObject';
 import PromiseCompo from './componets/PromiseCompo';
 import UseCallBack from './hooks/UseCallBack';
 import Accordion from './componets/Accordion';
+import Filter_Regular_Expression from './componets/Filter_Regular_Expression';
+import LoadMore from './loadMore/LoadMore';
+import ScrollLoadMore from './loadMore/ScrollLoadMore';
 
 function App() {
 
@@ -67,7 +69,8 @@ function App() {
     },
     {
       Path: "/filter-regular-expression",
-      component: <Filter_regular_expression />
+      // eslint-disable-next-line react/jsx-pascal-case
+      component: <Filter_Regular_Expression />
     },
     {
       Path: "/dynamic-form",
@@ -95,6 +98,7 @@ function App() {
     },
     {
       Path: "/did-mount",
+      // eslint-disable-next-line react/jsx-pascal-case
       component: <Did_mount />
     },
     {
@@ -140,7 +144,16 @@ function App() {
     {
       Path: "/accordion",
       component: <Accordion />
+    },
+    {
+      Path: "/loadmore",
+      component: <LoadMore />
+    },
+    {
+      Path: "ScrollLoadMore",
+      component: <ScrollLoadMore />
     }
+    
   ];
 
   return (

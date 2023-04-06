@@ -1,7 +1,7 @@
 import React from 'react'
 import Child from './Child'
 import { Col, Container, Row } from 'react-bootstrap'
-
+// Parent
 function Product() {
 
   const products = [
