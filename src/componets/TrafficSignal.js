@@ -1,36 +1,43 @@
-import React, { useState } from 'react'
-import { Container } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react'
+import { Container, Row } from 'react-bootstrap'
 
 function TrafficSignal() {
 
-    const [red, setRed] = useState('red');
-    const [green, setGreen] = useState('green');
-    const [blue, setBlue] = useState('blue');
+    const [signalStatus, setSignalStatus] = useState("red");
+    const [counter, setCounter] = useState(0);
 
-    const onChange = () => {
-        red === "red" ? setRed("green") : setRed("blue");
-        green === "green" ? setGreen("blue") : setGreen("red");
-        blue === "blue" ? setBlue("red") : setBlue("green");
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setTimeout(() => {
+                setSignalStatus("yellow");
+            }, 3000)
+            setTimeout(() => {
+                setSignalStatus("green");
+            }, 6000)
+            setTimeout(() => {
+                setSignalStatus("red");
+            }, 9000);
+        }, 1000*10);
 
-        // red === "blue" ? setRed("green") : setRed("red");
-        // green === "red" ? setGreen("blue") : setGreen("green");
-        // blue === "green" ? setBlue("red") : setBlue("green");
+        const counterTimer = setInterval(() => {
+            setCounter((prevCounter) => prevCounter + 1);
+        }, 1000);
 
-        // red === "green" ? setRed("blue") : setRed("red");
-        // green === "blue" ? setGreen("red") : setGreen("green");
-        // blue === "red" ? setBlue("green") : setBlue("blue");
-    }
+        return () => {
+            clearInterval(timer);
+            clearInterval(counterTimer);
+        };
+    }, []);
 
-    // setInterval(onChange, 1000)
-    console.log(red, green, blue);
+
+    console.log(signalStatus, counter)
 
     return (
         <Container>
-            <h2>Traffic Signal</h2>
-            <h3>{red}</h3>
-            <h3>{green}</h3>
-            <h3>{blue}</h3>
-            <button onClick={onChange}>Click to change</button>
+            <Row>
+                <h2>Traffic Signal</h2>
+                {signalStatus}{counter}
+            </Row>
         </Container>
     )
 }

@@ -48,6 +48,7 @@ input[type="text"] {
 .navbar ul {
   list-style: none;
 }
+
 .navbar ul li {
   padding: 0 15px;
 }
@@ -103,7 +104,8 @@ button.logout_btn:hover {
   display: none;
 }
 
-li:hover .sub_menu , .show {
+li:hover .sub_menu,
+.show {
   display: block;
 }
 
@@ -115,11 +117,11 @@ li:hover .sub_menu , .show {
   padding: 0;
 }
 
-.hide{
+.hide {
   display: none;
 }
 
-.success_modal{
+.success_modal {
   z-index: 999999;
   width: 100%;
   position: absolute;
@@ -128,17 +130,17 @@ li:hover .sub_menu , .show {
 }
 
 .success_modal.show {
-  background: linear-gradient(to right,rgba(0,0,0,.8),rgba(0,0,0,.8));
+  background: linear-gradient(to right, rgba(0, 0, 0, .8), rgba(0, 0, 0, .8));
   color: #FFFF;
 }
 
-.main_modal_container{
+.main_modal_container {
   display: flex;
   width: 100%;
   justify-content: center;
 }
 
-.accordion_title{
+.accordion_title {
   display: flex;
   justify-content: space-between;
   background-color: #fff;
