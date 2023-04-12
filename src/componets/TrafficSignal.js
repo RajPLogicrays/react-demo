@@ -1,45 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import { Container, Row } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react';
 
-function TrafficSignal() {
-
-    const [signalStatus, setSignalStatus] = useState("red");
+const TrafficSignal = () => {
+    const [color, setColor] = useState('yellow');
     const [counter, setCounter] = useState(0);
 
     useEffect(() => {
-        const timer = setInterval(() => {
-            setTimeout(() => {
-                setSignalStatus("yellow");
-            }, 3000)
-            setTimeout(() => {
-                setSignalStatus("green");
-            }, 6000)
-            setTimeout(() => {
-                setSignalStatus("red");
-            }, 9000);
-        }, 1000*10);
+        let interval;
 
-        const counterTimer = setInterval(() => {
-            setCounter((prevCounter) => prevCounter + 1);
-        }, 1000);
+        if (color === 'yellow') {
+            interval = setTimeout(() => {
+                setColor('green');
+                setCounter(0);
+            }, 3000);
+        } else if (color === 'green') {
+            interval = setTimeout(() => {
+                setColor('red');
+                setCounter(0);
+            }, 30000);
+        } else {
+            interval = setTimeout(() => {
+                setColor('yellow');
+                setCounter(0);
+            }, 30000);
+        }
 
-        return () => {
-            clearInterval(timer);
-            clearInterval(counterTimer);
-        };
+        return () => clearTimeout(interval);
+    }, [color]);
+
+    useEffect(() => {
+        const interval = setInterval(() => setCounter((prevCounter) => prevCounter + 1), 1000);
+
+        return () => clearInterval(interval);
     }, []);
 
-
-    console.log(signalStatus, counter)
-
     return (
-        <Container>
-            <Row>
-                <h2>Traffic Signal</h2>
-                {signalStatus}{counter}
-            </Row>
-        </Container>
-    )
-}
+        <div className={`traffic-signal ${color}`}>
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="circle"></div>
+            <div className="counter">{counter}</div>
+        </div>  
+    );
+};
 
-export default TrafficSignal
+export default TrafficSignal;

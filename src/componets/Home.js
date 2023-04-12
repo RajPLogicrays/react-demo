@@ -23,7 +23,7 @@ class Home extends React.Component {
           <Row>
             <Col>
               <h1>{this.state.name} {this.state.data}</h1>
-              <button onClick={()=>this.increment()}>Update Data</button>
+              <button onClick={()=>this.increment()} className="btn btn-primary">Update Data</button>
             </Col>
           </Row>
         </Container>

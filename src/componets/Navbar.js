@@ -47,6 +47,10 @@ function Navbar() {
                 {
                     title: "Hoc hooks",
                     url: "hoc",
+                },
+                {
+                    title: "Traffic Signal",
+                    url: "traffic-signal",
                 }
             ]
         },
