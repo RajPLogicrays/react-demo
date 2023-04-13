@@ -34,6 +34,7 @@ import Filter_Regular_Expression from './componets/Filter_Regular_Expression';
 import LoadMore from './loadMore/LoadMore';
 import ScrollLoadMore from './loadMore/ScrollLoadMore';
 import TrafficSignal from './componets/TrafficSignal';
+import CheckBox from './componets/CheckBox';
 
 function App() {
 
@@ -157,7 +158,11 @@ function App() {
     {
       Path: "traffic-signal",
       component: <TrafficSignal />
-    },    
+    },
+    {
+      Path: "check-box",
+      component: <CheckBox />
+    } 
   ];
 
   return (
