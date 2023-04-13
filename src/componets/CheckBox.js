@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
 function CheckBox() {
-
     const items = [
         { id: 1, name: 'Junagadh' },
         { id: 2, name: 'Somnath' },
@@ -15,29 +14,45 @@ function CheckBox() {
     ];
 
     const [citys, setCitys] = useState(items);
+    const [checked, setChecked] = useState({});
 
     const deleteUser = (index) => {
         const newCitys = [...citys];
-        // console.log(newCitys);
         newCitys.splice(index, 1);
         setCitys(newCitys);
-    }
+        setChecked({});
+    };
+
+    const checkedInput = (index) => {
+        setChecked((prevState) => ({ ...prevState, [index]: !prevState[index] }));
+    };
 
     return (
         <Container>
             <Row>
-                <h1>Click To Check</h1>
-                {citys.map((item, index) => {
-                    return (
-                        <Col key={item.id}>
-                            <div>{item.name}</div>
-                            <button onClick={() => deleteUser(index)} className="btn btn-primary">Delete</button>
-                        </Col>
-                    )
-                })}
+                <Col>
+                    <h1>Click To Check</h1>
+                    <ul>
+                        {citys.map((item, index) => {
+                            return (
+                                <li key={item.id}>
+                                    <div className="g-4">
+                                        <input type="checkbox" onClick={() => checkedInput(index)} value={item.name} defaultChecked={checked[index] || false} />
+                                        <h3>{item.name}</h3>
+                                        {checked[index] && (
+                                            <button onClick={() => deleteUser(index)} className="btn btn-primary">
+                                                Delete {item.name}
+                                            </button>
+                                        )}
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </Col>
             </Row>
         </Container>
-    )
+    );
 }
 
 export default CheckBox;
