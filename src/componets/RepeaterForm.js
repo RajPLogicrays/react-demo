@@ -28,7 +28,7 @@ function RepeaterForm() {
     setInputFields(data)
     console.log(data);
   }
-
+  
   return (
     <>
       <Container>
@@ -38,7 +38,7 @@ function RepeaterForm() {
             <form>
               {inputFields.map((input, index) => {
                 return (
-                  <Row key={index} style={{'margin': '10px 0'}}>
+                  <Row key={index} style={{ 'margin': '10px 0' }}>
                     <Col>
                       <input type="text" name="firstName" value={input.firstName} onChange={event => handleFormChange(index, event)} placeholder="Enter Your First name" required />
                     </Col>
@@ -46,11 +46,11 @@ function RepeaterForm() {
                       <input type="text" name="lastName" value={input.lastName} onChange={event => handleFormChange(index, event)} placeholder="Enter Your Last name" required />
                     </Col>
                     <Col>
-                    {index === 0 ?
-                      <Button onClick={() => removeFields(index)} disabled>Remove</Button>          
-                      :
-                      <Button onClick={() => removeFields(index)}>Remove</Button>
-                    }
+                      {inputFields.length === 1 ?
+                        <Button onClick={() => removeFields(index)} disabled>Remove</Button>
+                        :
+                        <Button onClick={() => removeFields(index)}>Remove</Button>
+                      }
                     </Col>
                   </Row>
                 )

@@ -27,7 +27,7 @@ function CheckBox() {
             item.id === id ? { ...item, checked: !item.checked } : item
         );
         setShowDelete((prevState) => ({ ...prevState, [id]: !prevState[id] }));
-        console.log(updatedItems)
+        console.log(updatedItems);
     };
 
     return (

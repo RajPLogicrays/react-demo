@@ -58,7 +58,7 @@ function AccordionItem({ title, content, id }) {
 
     return (
         <>
-            <div className="accordion_title" onClick={() =>setIsActive(!isActive)}>
+            <div className="accordion_title" onClick={() => setIsActive(!isActive)}>
                 <h4>{title}</h4>
                 <div>{isActive ? "-" : "+"}</div>
             </div>
